@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:layout_height="500dp">
+
+            <ImageView
+                android:id="@+id/photoImageView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/teal_200"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:background="@color/teal_700"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/authorTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="12dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:shadowColor="#60000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="5"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/descriptionTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/profileImageView"
+                app:layout_constraintTop_toTopOf="@id/profileImageView"
+                tools:text="author" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="5"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/authorTextView"
+                app:layout_constraintStart_toStartOf="@id/authorTextView"
+                app:layout_constraintTop_toBottomOf="@id/authorTextView"
+                tools:text="description" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
+
+    <!--이미지 사이즈가 각각 다를 수 있기 때문에 height wrap_content-->
+    <!--cardView 는 FrameLayout 을 상속받고 있기 때문에 뷰 배치가 자유롭지 못함 따라서 안에 ConstraintLayout 을 넣어주는게 맞음-->
+    <!--tools 를 사용하려면 toolsNs 를 루트 Layout 에 먼저 추가하고 사용하자 그렇게 해야 추가, 자동완성이 잘 되더라-->
+    <!--흰색 바탕에서 흰색글씨가 잘보이도록 shadow 속성을 부여할수있음-->
